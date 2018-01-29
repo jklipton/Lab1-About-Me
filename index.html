@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title>Lab 1- About Me!</title>
+    </head>
+    <body>
+        <!-- Questions -->
+        <section class"Questions">
+            <h1>Hello!  Let's chat,</h1>
+            <p>What's your name?</p>
+            <p>Where did you last live, before Portland?</p>
+            <p>How many years have you been coding?</p>
+            <p>Do you like coding, so far?</p>
+        </section>
+
+        <!-- Javascript -->
+        <script>
+            // User's Name
+            const name = prompt("What's your name?");
+            alert('Hey ' + name + ', nice to meet you!');
+            console.log("This user's name is: " + name);
+
+            // Last Town
+            const town = prompt('Where did you last live, before Portland?');
+            alert("Cool, " + name + "! I've heard good things about " + town + ".");
+            console.log(name + ' comes from ' + town + '!');
+
+            // Favorite Animal
+            const animal = prompt('What are your favorite animals?');
+            alert('Wow, ' + name + '! I bet ' + animal + ' are hilarious in ' + town + '.');
+            console.log(name + ' loves ' + animal + '.');
+
+            // Dream Job
+            const job = prompt('What job are you hoping for, after Bootcamp?');
+            alert("Well, " + name + ", I hope you don't miss all the " + town + " " + animal + " when you're a high powered " + job + " after this!");
+            console.log(name + ' wants to be a ' + job + '!');
+
+            //Sign-Off
+            alert("Keep in touch!");
+            console.log("Now you've met the future " + job + ", " + name + ". Lover of " + animal + ", from " + town + "!");
+        </script>
+    </body>
+
+</html>
