@@ -1,0 +1,29 @@
+body {
+    background: skyblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+section {
+    text-align: center;
+    width: 450px;
+    margin: 100px auto;
+    background: lightblue;
+    padding: 10px;
+}
+
+#askYou h1{
+    color:  darkgray;
+}
+
+section #askMe {
+    margin-top: 0px;
+}
+
+#askMe h1{
+    color: gray;
+}
+
