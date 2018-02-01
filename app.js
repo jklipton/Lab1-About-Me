@@ -41,13 +41,13 @@ const right = ['Yes!', 'Yep!', 'Right on.', 'Yeah, that\'s right!', 'You got it!
 let score = 0;
 
 for (let i = 0; i <= 2; i++){
-    let guess = prompt(questions[i]);
+    let guess = prompt(questions[i]).toLowerCase();
     if (guess != answers[i]){
         //Incorrect answer!
         for (let j = 0; j <= 1; j++) {
             if (guess != answers[i]){
                 alert(wrong[Math.floor(Math.random() * wrong.length)] + ' Try again, ' + userName + '!');
-                guess = prompt(questions[i]);
+                guess = prompt(questions[i]).toLowerCase();
             } else {
                 alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
                 score++;
@@ -66,7 +66,7 @@ for (let i = 0; i <= 2; i++){
 // Question 5 + 6, Yes or Nos
 const dogPerson = prompt('Do you think I\'m a dog person?').toLowerCase();
 if (yes.includes(dogPerson)){
-    alert('Haha, yeah. I totally am. I have a big white thing at home.');
+    alert('Haha, yeah. I totally am. I have a big white one at home.');
     console.log('Am I a dog person? ' + dogPerson);
     score++;
 } else if (no.includes(dogPerson)) {
