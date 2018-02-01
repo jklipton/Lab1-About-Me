@@ -168,6 +168,8 @@ const no = ['no', 'n', 'nah', 'nope', 'no!',];
 const questions = ['question 1', 'question 2', 'question 3', 'question 4', 'question 5'];
 const answers = ['1', '0', '1', '0', '1'];
 
+let score = 0;
+
 //5 Y/N Questions
 
 for (let i = 0; i < 5; i++ ){
@@ -176,10 +178,13 @@ for (let i = 0; i < 5; i++ ){
     console.log('Answer' + i + ' is: ' + answers[i]);
     if (guess === answers[i]){
         alert('You are right!');
+        score ++;
     } else {
         alert('You suck');
     }
 }
+console.log('score is: ' + score);
+alert('You scored ' + score);
 
 
 // Define functions
