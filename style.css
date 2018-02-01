@@ -19,7 +19,7 @@ header #logo{
 #lists {
     background-color: #a7a7a7;
     width: fit-content;
-    margin-bottom: 100px;
+    margin: auto auto 100px auto;
 }
 
 h1 {
