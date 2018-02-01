@@ -6,3 +6,6 @@ This is the first project for Bootcamp Part 1 at Alchemy Code Lab.  This one her
 
 ## Getting Started
 To get started, please visit a live version of this project and follow on-screen prompts.
+
+## Contributers 
+Jennifer Lipton, Henrique Oliveira
