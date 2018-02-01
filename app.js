@@ -165,22 +165,36 @@
 const yes = ['yes', 'y', 'yeah', 'yes!', 'sure'];
 const no = ['no', 'n', 'nah', 'nope', 'no!',];
 
-let guess = prompt('Say YES').toLowerCase();
-const answers = ['1'];
+const questions = ['question 1', 'question 2', 'question 3', 'question 4', 'question 5'];
+const answers = ['1', '0', '1', '0', '1'];
 
-if (yes.includes(guess)){
-    guess = '1';
-} else if (no.includes(guess)){
-    guess = '0';
-} else {
-    alert('Error, please response with yes or no.');
+//5 Y/N Questions
+
+for (let i = 0; i < 5; i++ ){
+    let guess = prompt(questions[i]).toLowerCase();
+    guess = convertGuess(guess);
+    console.log('Answer' + i + ' is: ' + answers[i]);
+    if (guess === answers[i]){
+        alert('You are right!');
+    } else {
+        alert('You suck');
+    }
 }
 
-if (guess === answers[0]){
-    alert('You are right!');
-} else {
-    alert ('You are wrong!');
-}
 
-console.log('guess was: ' + guess);
-console.log('answers1 was: ' + answers[1]);
+// Define functions
+function convertGuess (string){
+    if (yes.includes(string)){
+        guess = '1';
+    } else if (no.includes(string)){
+        guess = '0';
+    } else {
+        alert('Error, please response with yes or no.');
+    }
+    return guess;
+};
+
+
+
+
+
