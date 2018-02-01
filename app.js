@@ -44,52 +44,81 @@
 //             if (guess != answers[i]){
 //                 alert(wrong[Math.floor(Math.random() * wrong.length)] + ' Try again!');
 //                 guess = prompt(questions[i]);
-//             } else {
-//                 alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
-//                 score++;
-//                 break;
-//             }
-//         }
-//         console.log('After Question #' + (i + 1) + ', score: ' + score);
-//     } else if (guess == answers[i]){
-//         //Correct answer!
+// //             } else {
+// //                 alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
+// //                 score++;
+// //                 break;
+// //             }
+// //         }
+// //         console.log('After Question #' + (i + 1) + ', score: ' + score);
+// //     } else if (guess == answers[i]){
+// //         //Correct answer!
+// //         score++;
+// //         alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
+// //         console.log('After Question #' + (i + 1) + ', score: ' + score);
+// //     }
+// // }
+
+// // Question 5 + 6, Yes or Nos
+// const yes = ['yes', 'y', 'yeah', 'yes!', 'sure'];
+// const no = ['no', 'n', 'nah', 'nope', 'no!',];
+
+// const dogPerson = prompt('Do you think I\'m a dog person?').toLowerCase();
+// if (yes.includes(dogPerson)){
+//     alert('Haha, yeah. I totally am. I have a big white thing at home.');
+//     console.log('Am I a dog person? ' + dogPerson);
+//     score++;
+// } else if (no.includes(dogPerson)) {
+//     alert('Sorry, I definitely am! I could never give up dogs.');
+//     console.log('Am I a dog person? ' + dogPerson);
+// } else {
+//     console.log('Error on Question #5.');
+//     alert('Try answering the question!');
+// }
+// console.log('After Question #5, score: ' + score);
+
+// const catPerson = prompt('Do you think I\'m a cat person?').toLowerCase();
+// if (yes.includes(catPerson)){
+//     alert('You\'re right, I\'m a cat person, too. Who can choose?');
+//     console.log('Am I a cat person? ' + catPerson);
+//     score++;
+// } else if (no.includes(catPerson)) {
+//     alert('Kind of a trick question, but I love cats too! My first love was an orange tom.');
+//     console.log('Am I a cat person? ' + catPerson);
+// } else {
+//     console.log('Error on Question #6.');
+//     alert('Try answering the question!');
+// }
+// console.log('After Question #6, score: ' + score);
+
+// // Question 7, Guess the number
+
+// const numRandom = Math.floor(Math.random() * 10) + 1;
+// console.log('The random number is: ' + numRandom);
+
+// let numGuess = parseInt(prompt('I\'m thinking of a number between 1 and 10...'));
+// console.log('User guessed: ' + numGuess);
+
+// for (let g = 1; g <= 5; g++){
+//     if (numGuess === numRandom) {
+//         alert('You got it!  Nice.');
 //         score++;
-//         alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
-//         console.log('After Question #' + (i + 1) + ', score: ' + score);
+//         break;
+//     } else if (numGuess < numRandom){
+//         numGuess = parseInt(prompt('Think bigger! You have ' + (5 - g) + ' more guesses.'));
+//         console.log('User guessed: ' + numGuess);
+//     } else if (numGuess > numRandom){
+//         numGuess = parseInt(prompt('Too high! You have ' + (5 - g) + ' more guesses.'));
+//         console.log('User guessed: ' + numGuess);
+//     } else {
+//         numGuess = parseInt(prompt('Try a numeral between 1 and 10! You have ' + (5 - g) + ' more guesses.'));
+//         console.log('User guessed: ' + numGuess);
 //     }
 // }
+// console.log('After Question #7, score: ' + score);
 
-// Question 5 + 6, Yes or Nos
-const yes = ['yes', 'y', 'yeah', 'yes!', 'sure'];
-const no = ['no', 'n', 'nah', 'nope', 'no!',];
+// // Question 8, Multiple Choice
 
-const dogPerson = prompt('Do you think I\'m a dog person?').toLowerCase();
-if (yes.includes(dogPerson)){
-    alert('Haha, yeah. I totally am. I have a big white thing at home.');
-    console.log('Am I a dog person? ' + dogPerson);
-    score++;
-} else if (no.includes(dogPerson)) {
-    alert('Sorry, I definitely am! I could never give up dogs.');
-    console.log('Am I a dog person? ' + dogPerson);
-} else {
-    console.log('Error on Question #5.');
-    alert('Try answering the question!');
-}
-console.log('After Question #5, score: ' + score);
-
-const catPerson = prompt('Do you think I\'m a cat person?').toLowerCase();
-if (yes.includes(catPerson)){
-    alert('You\'re right, I\'m a cat person, too. Who can choose?');
-    console.log('Am I a cat person? ' + catPerson);
-    score++;
-} else if (no.includes(catPerson)) {
-    alert('Kind of a trick question, but I love cats too! My first love was an orange tom.');
-    console.log('Am I a cat person? ' + catPerson);
-} else {
-    console.log('Error on Question #6.');
-    alert('Try answering the question!');
-}
-console.log('After Question #6, score: ' + score);
 
 
 
