@@ -1,25 +1,31 @@
 'use strict';
 
-
-// To do, make questions lowercase
-
-// Define yes / no
+// Define arrays
 const yes = ['yes', 'y', 'yeah', 'yes!', 'sure'];
 const no = ['no', 'n', 'nah', 'nope', 'no!',];
+const wrong = ['Nope.', 'Nah.', 'Close, but no!', 'Sorry, that\'s not right.'];
+const right = ['Yes!', 'Yep!', 'Right on.', 'Yeah, that\'s right!', 'You got it!'];
+
+const questions1 = ['Do I drink coffee or tea?', 'What is my favorite color?','What month was I born?'];
+const answers1 = ['coffee', 'purple', 'july'];
+const questions2 = ['Am I a cat person?', 'Am I a dog person?'];
+const answers2 = ['1', '1'];
+
+let score = 0;
 
 // functions
 const userName = askName();
 play();
-questions();
+loopQuestions();
+
 
 // Welcome
-
 function askName() {
     let userName = prompt('Hey, let\'s chat! What should I call you?');
     for (let i = 0; i <= 3; i++) {
-        if ((userName == false || userName == '') && i < 3) {
+        if ((userName === false || userName === '') && i < 3) {
             userName = prompt('Give me a name!  Any name!');
-        } else if ((userName == false || userName == '') && i === 3){
+        } else if ((userName === false || userName === '') && i === 3){
             alert('Okay, smartie. I\'ll just call you Meryl.');
             userName = 'Meryl';
             break;
@@ -32,8 +38,6 @@ function askName() {
     return userName;
 }
 console.log('User\'s name is: ' + userName);
-
-
 
 //Guessing Game?
 function play() {
@@ -48,24 +52,18 @@ function play() {
     }
 }
 
-function questions() {
-// Questions 2-4, Fill in the blank
 
-    const questions = ['Do I drink coffee or tea?', 'What is my favorite color?','What month was I born?'];
-    const answers = ['coffee', 'purple', 'july'];
-    const wrong = ['Nope.', 'Nah.', 'Close, but no!', 'Sorry, that\'s not right.'];
-    const right = ['Yes!', 'Yep!', 'Right on.', 'Yeah, that\'s right!', 'You got it!'];
-    let score = 0;
+// Questions 1-3, Fill in the blank
 
-
+function loopQuestions() {
     for (let i = 0; i <= 2; i++){
-        let guess = prompt(questions[i]).toLowerCase();
-        if (guess != answers[i]){
+        let guess = prompt(questions1[i]).toLowerCase();
+        if (guess != answers1[i]){
         //Incorrect answer!
             for (let j = 0; j <= 1; j++) {
-                if (guess != answers[i]){
+                if (guess != answers1[i]){
                     alert(wrong[Math.floor(Math.random() * wrong.length)] + ' Try again, ' + userName + '!');
-                    guess = prompt(questions[i]).toLowerCase();
+                    guess = prompt(questions1[i]).toLowerCase();
                 } else {
                     alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
                     score++;
@@ -73,7 +71,7 @@ function questions() {
                 }
             }
             console.log('After Question #' + (i + 1) + ', score: ' + score);
-        } else if (guess == answers[i]){
+        } else if (guess == answers1[i]){
         //Correct answer!
             score++;
             alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
@@ -81,29 +79,21 @@ function questions() {
         }
     }
 
-
-    // Question 5 + 6, Yes or Nos
-
-    const questions1 = ['Am I a cat person?', 'Am I a dog person?'];
-    const answers1 = ['1', '0'];
-
-
-    //5 Y/N Questions
+    //4+5 Y/N Questions
 
     for (let i = 0; i < 2; i++ ){
-        let guess = prompt(questions1[i]).toLowerCase();
+        let guess = prompt(questions2[i]).toLowerCase();
         guess = convertGuess(guess);
-        console.log('Answer' + i + ' is: ' + answers1[i]);
-        if (guess === answers1[i]){
-            alert('You are right!');
+        if (guess === answers2[i]){
+            alert(right[Math.floor(Math.random() * right.length)] + ' Of course I am, ' + userName + '!');
             score ++;
         } else {
-            alert('You suck');
+            alert(wrong[Math.floor(Math.random() * wrong.length)] + ' Too bad, ' + userName + '!');
         }
     }
 
 
-    // Question 7, Guess the number
+    // Question 6, Guess the number
 
     const numRandom = Math.floor(Math.random() * 10) + 1;
     console.log('The random number is: ' + numRandom);
@@ -127,26 +117,27 @@ function questions() {
             console.log('User guessed: ' + numGuess);
         }
     }
-    console.log('After Question #7, score: ' + score);
+    console.log('After Question #6, score: ' + score);
 
     // Question 8, Multiple Choice
     const states = ['massachusetts', 'new york', 'vermont', 'indiana'];
 
-    let stateGuess = prompt('Here\s an easier one: name a state that I\'ve lived in, besides Oregon.').toLowerCase();
+    const stateGuess = prompt('Here\s an easier one: name a state that I\'ve lived in, besides Oregon.').toLowerCase();
     if (states.includes(stateGuess)){
         alert('You\'re right!  I did live in ' + stateGuess + '.');
         score++;
     } else {
         alert('Sorry, never lived there!  Oh, well.');
     }
-    console.log('After Question #8, score: ' + score);
+    console.log('After Question #7, score: ' + score);
+    return score;
+}
 
-    // Score!
-    if (score > 4) {
-        alert('Good job, ' + userName + '! You scored ' + score + ' out of 8! Thanks for playing!');
-    } else {
-        alert('Aw, too bad, ' + userName + '. You scored ' + score + ' out of 8.  Thanks for playing!');
-    }
+// Score!
+if (score > 4) {
+    alert('Good job, ' + userName + '! You scored ' + score + ' out of 7! Thanks for playing!');
+} else {
+    alert('Aw, too bad, ' + userName + '. You scored ' + score + ' out of 7.  Thanks for playing!');
 }
 
 // Define functions
