@@ -92,7 +92,6 @@ function loopQuestions() {
         }
     }
 
-
     // Question 6, Guess the number
 
     const numRandom = Math.floor(Math.random() * 10) + 1;
@@ -147,7 +146,7 @@ function convertGuess (string){
     } else if (no.includes(string)){
         string = '0';
     } else {
-        alert('Error, please response with yes or no.');
+        alert('Please respond with \'Yes\' or \'No\'.');
     }
     return string;
 };
