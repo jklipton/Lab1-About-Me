@@ -1,15 +1,20 @@
 'use strict';
 
-// // Define arrays
+// // Define initial arrays
 const yes = ['yes', 'y', 'yeah', 'yes!', 'sure'];
 const no = ['no', 'n', 'nah', 'nope', 'no!',];
-const wrong = ['Nope.', 'Nah.', 'Close, but no!', 'Sorry, that\'s not right.'];
+const wrong = ['Nope.', 'Nah.', 'Sorry, that\'s not right.'];
 const right = ['Yes!', 'Yep!', 'Right on.', 'Yeah, that\'s right!', 'You got it!'];
 
 const blankQuestions = ['Do I drink coffee or tea?', 'What is my favorite color?','What month was I born?'];
 const blankAnswers = ['coffee', 'purple', 'july'];
 const ynQuestions = ['Am I a cat person?', 'Am I a dog person?', 'Am I a bird person?'];
 const ynAnswers = ['1', '1', '0'];
+
+const ynPositive = [' Of course I am, cat\'s are awesome', ' I\'m a dog person too... who can choose?', ' You\'re right. Birds freak me out'];
+const ynNegative = [' Of course I am, cats are my jam', ' I love dogs, too. I live with two', ' See, you might think so, but nope. I don\'t get \'em']
+
+
 
 let score = 0;
 
@@ -88,10 +93,10 @@ function loopQuestions() {
         let guess = prompt(ynQuestions[i]).toLowerCase();
         guess = convertGuess(guess);
         if (guess === ynAnswers[i]){
-            alert(right[Math.floor(Math.random() * right.length)] + ' Of course I am, ' + userName + '!');
+            alert(right[Math.floor(Math.random() * right.length)] + ynPositive[i] + '!');
             score ++;
         } else {
-            alert(wrong[Math.floor(Math.random() * wrong.length)] + ' Too bad, ' + userName + '!');
+            alert(wrong[Math.floor(Math.random() * wrong.length)] + ynNegative[i] + '!');
         }
     }
 
@@ -139,7 +144,7 @@ function loopQuestions() {
 if (score > 4) {
     alert('Good job, ' + userName + '! You scored ' + score + ' out of 7! Thanks for playing!');
 } else {
-    alert('Aw, too bad, ' + userName + '. You scored ' + score + ' out of 7.  Thanks for playing!');
+    alert('Aw, too bad, ' + userName + '. You only scored ' + score + ' out of 7.  Thanks for playing!');
 }
 
 // Define functions
