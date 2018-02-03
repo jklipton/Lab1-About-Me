@@ -8,8 +8,8 @@ const right = ['Yes!', 'Yep!', 'Right on.', 'Yeah, that\'s right!', 'You got it!
 
 const blankQuestions = ['Do I drink coffee or tea?', 'What is my favorite color?','What month was I born?'];
 const blankAnswers = ['coffee', 'purple', 'july'];
-const ynQuestions = ['Am I a cat person?', 'Am I a dog person?'];
-const ynAnswers = ['1', '1'];
+const ynQuestions = ['Am I a cat person?', 'Am I a dog person?', 'Am I a bird person?'];
+const ynAnswers = ['1', '1', '0'];
 
 let score = 0;
 
@@ -84,7 +84,7 @@ function loopQuestions() {
 
     //4+5 Y/N Questions
 
-    for (let i = 0; i < 2; i++ ){
+    for (let i = 0; i < 3; i++ ){
         let guess = prompt(ynQuestions[i]).toLowerCase();
         guess = convertGuess(guess);
         if (guess === ynAnswers[i]){
