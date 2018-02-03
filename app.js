@@ -11,7 +11,7 @@ const blankAnswers = ['coffee', 'purple', 'july'];
 const ynQuestions = ['Am I a cat person?', 'Am I a dog person?', 'Am I a bird person?'];
 const ynAnswers = ['1', '1', '0'];
 
-const ynPositive = [' Of course I am, cat\'s are awesome', ' I\'m a dog person too... who can choose?', ' You\'re right. Birds freak me out'];
+const ynPositive = [' Of course I am, cats are awesome', ' I\'m a dog person too... who can choose?', ' You\'re right. Birds freak me out'];
 const ynNegative = [' Of course I am, cats are my jam', ' I love dogs, too. I live with two', ' See, you might think so, but nope. I don\'t get \'em']
 
 
