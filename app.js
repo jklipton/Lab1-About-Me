@@ -1,15 +1,15 @@
 'use strict';
 
-// Define arrays
+// // Define arrays
 const yes = ['yes', 'y', 'yeah', 'yes!', 'sure'];
 const no = ['no', 'n', 'nah', 'nope', 'no!',];
 const wrong = ['Nope.', 'Nah.', 'Close, but no!', 'Sorry, that\'s not right.'];
 const right = ['Yes!', 'Yep!', 'Right on.', 'Yeah, that\'s right!', 'You got it!'];
 
-const questions1 = ['Do I drink coffee or tea?', 'What is my favorite color?','What month was I born?'];
-const answers1 = ['coffee', 'purple', 'july'];
-const questions2 = ['Am I a cat person?', 'Am I a dog person?'];
-const answers2 = ['1', '1'];
+const blankQuestions = ['Do I drink coffee or tea?', 'What is my favorite color?','What month was I born?'];
+const blankAnswers = ['coffee', 'purple', 'july'];
+const ynQuestions = ['Am I a cat person?', 'Am I a dog person?', 'Am I a bird person?'];
+const ynAnswers = ['1', '1', '0'];
 
 let score = 0;
 
@@ -57,22 +57,25 @@ function play() {
 
 function loopQuestions() {
     for (let i = 0; i <= 2; i++){
-        let guess = prompt(questions1[i]).toLowerCase();
-        if (guess != answers1[i]){
-        //Incorrect answer!
-            for (let j = 0; j <= 1; j++) {
-                if (guess != answers1[i]){
-                    alert(wrong[Math.floor(Math.random() * wrong.length)] + ' Try again, ' + userName + '!');
-                    guess = prompt(questions1[i]).toLowerCase();
-                } else {
-                    alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
-                    score++;
-                    break;
-                }
+        let guess = prompt(blankQuestions[i]).toLowerCase();
+        if (guess != blankAnswers[i]){
+            //Incorrect answer!
+            switch (true){
+            case guess === '' || guess === false:
+                guess = prompt('Try answering the question! ' + blankQuestions[i]).toLowerCase();
+                break;
+            case guess != blankAnswers[i]:
+                guess = prompt('Try once more, ' + userName + '! ' + blankQuestions[i]).toLowerCase();
+                break;
+            case guess == blankAnswers[i]:
+                score++;
+                alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
+                console.log('After Question #' + (i + 1) + ', score: ' + score);
+                break;
             }
             console.log('After Question #' + (i + 1) + ', score: ' + score);
-        } else if (guess == answers1[i]){
-        //Correct answer!
+        } else if (guess == blankAnswers[i]){
+            //Correct answer!
             score++;
             alert(right[Math.floor(Math.random() * right.length)] + ' Next question!');
             console.log('After Question #' + (i + 1) + ', score: ' + score);
@@ -81,10 +84,10 @@ function loopQuestions() {
 
     //4+5 Y/N Questions
 
-    for (let i = 0; i < 2; i++ ){
-        let guess = prompt(questions2[i]).toLowerCase();
+    for (let i = 0; i < 3; i++ ){
+        let guess = prompt(ynQuestions[i]).toLowerCase();
         guess = convertGuess(guess);
-        if (guess === answers2[i]){
+        if (guess === ynAnswers[i]){
             alert(right[Math.floor(Math.random() * right.length)] + ' Of course I am, ' + userName + '!');
             score ++;
         } else {
@@ -100,19 +103,19 @@ function loopQuestions() {
     let numGuess = parseInt(prompt('I\'m thinking of a number between 1 and 10...'));
     console.log('User guessed: ' + numGuess);
 
-    for (let g = 1; g <= 5; g++){
+    for (let g = 4; g >= 1; g--){
         if (numGuess === numRandom) {
             alert('You got it!  Nice.');
             score++;
             break;
         } else if (numGuess < numRandom){
-            numGuess = parseInt(prompt('Think bigger! You have ' + (5 - g) + ' more guesses.'));
+            numGuess = parseInt(prompt('Think bigger! You have ' + g + ' more guesses.'));
             console.log('User guessed: ' + numGuess);
         } else if (numGuess > numRandom){
-            numGuess = parseInt(prompt('Too high! You have ' + (5 - g) + ' more guesses.'));
+            numGuess = parseInt(prompt('Too high! You have ' + g + ' more guesses.'));
             console.log('User guessed: ' + numGuess);
         } else {
-            numGuess = parseInt(prompt('Try a numeral between 1 and 10! You have ' + (5 - g) + ' more guesses.'));
+            numGuess = parseInt(prompt('Try a numeral between 1 and 10! You have ' + g + ' more guesses.'));
             console.log('User guessed: ' + numGuess);
         }
     }
@@ -150,8 +153,3 @@ function convertGuess (string){
     }
     return string;
 };
-
-
-
-
-
